@@ -1,6 +1,6 @@
 {
   "name": "@mezielabs/flair",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "AdonisJS authentication scaffolding",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
@@ -25,13 +25,13 @@
   "author": "Chimezie Enyinnaya",
   "license": "MIT",
   "repository": {
-		"type": "git",
-		"url": "git+https://github.com/mezielabs/flair.git"
-	},
+    "type": "git",
+    "url": "git+https://github.com/mezielabs/flair.git"
+  },
   "bugs": {
-		"url": "https://github.com/mezielabs/flair/issues"
-	},
-	"homepage": "https://github.com/mezielabs/flair#readme",
+    "url": "https://github.com/mezielabs/flair/issues"
+  },
+  "homepage": "https://github.com/mezielabs/flair#readme",
   "devDependencies": {
     "@adonisjs/core": "^5.8.3",
     "@adonisjs/mrm-preset": "^5.0.3",
