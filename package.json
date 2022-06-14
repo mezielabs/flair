@@ -2,13 +2,13 @@
   "name": "flair",
   "version": "1.0.0",
   "description": "AdonisJS authentication scaffolding",
-  "main": "index.js",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "pretest": "npm run lint",
     "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
     "clean": "del-cli build",
-    "compile": "npm run lint && npm run clean && tsc",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" \"instructions.md\" build",
+    "compile": "npm run lint && npm run clean && tsc && npm run copyfiles",
     "build": "npm run compile",
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ext=.ts",
@@ -26,13 +26,17 @@
   "author": "Chimezie Enyinnaya",
   "license": "MIT",
   "devDependencies": {
+    "@adonisjs/core": "^5.8.3",
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.12",
+    "@adonisjs/sink": "^5.3.2",
     "@types/node": "^17.0.41",
     "commitizen": "^4.2.4",
+    "copyfiles": "^2.4.1",
     "cz-conventional-changelog": "^3.3.0",
     "del-cli": "^4.0.1",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-adonis": "^2.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "github-label-sync": "^2.2.0",
     "husky": "^8.0.1",
@@ -49,9 +53,9 @@
     "probotApps": []
   },
   "files": [
-    "build/src",
-    "build/index.d.ts",
-    "build/index.js"
+    "build/templates",
+    "build/instructions.js",
+    "build/instructions.md"
   ],
   "eslintConfig": {
     "extends": [
@@ -91,5 +95,56 @@
   "np": {
     "contents": ".",
     "anyBranch": false
+  },
+  "adonisjs": {
+    "instructions": "./build/instructions.js",
+    "instructionsMd": "./build/instructions.md",
+    "templates": {
+      "basePath": "./build/templates",
+      "contracts": [
+        {
+          "src": "contracts/response.txt",
+          "dest": "response"
+        }
+      ],
+      "views": [
+        {
+          "src": "resources/views/home.txt",
+          "dest": "home.edge"
+        },
+        {
+          "src": "resources/views/dashboard.txt",
+          "dest": "dashboard.edge"
+        },
+        {
+          "src": "resources/views/layouts/app.txt",
+          "dest": "layouts/app.edge"
+        },
+        {
+          "src": "resources/views/auth/register.txt",
+          "dest": "auth/register.edge"
+        },
+        {
+          "src": "resources/views/auth/login.txt",
+          "dest": "auth/login.edge"
+        },
+        {
+          "src": "resources/views/auth/forgot-password.txt",
+          "dest": "auth/forgot-password.edge"
+        },
+        {
+          "src": "resources/views/auth/confirm-password.txt",
+          "dest": "auth/confirm-password.edge"
+        },
+        {
+          "src": "resources/views/auth/reset-password.txt",
+          "dest": "auth/reset-password.edge"
+        },
+        {
+          "src": "resources/views/auth/resend-verification.txt",
+          "dest": "auth/resend-verification.edge"
+        }
+      ]
+    }
   }
 }

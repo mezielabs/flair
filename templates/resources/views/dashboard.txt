@@ -1,0 +1,11 @@
+@layout('layouts/app')
+
+@section('content')
+  <h1 class="font-medium text-xl text-gray-900 leading-6">Dashboard</h1>
+
+  <div class="my-6 bg-white overflow-hidden shadow rounded-lg">
+    <div class="px-4 py-5 sm:p-6">
+      Welcome back, {{ auth.user.name }}!
+    </div>
+  </div>
+@endsection

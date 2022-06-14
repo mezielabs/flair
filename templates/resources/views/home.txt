@@ -1,0 +1,5 @@
+@layout('layouts/app')
+
+@section('content')
+  <h1 class="font-medium text-xl text-gray-900 leading-6">Home</h1>
+@endsection
