@@ -5,7 +5,6 @@
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "pretest": "npm run lint",
-    "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
     "clean": "del-cli build",
     "copyfiles": "copyfiles \"templates/**/*.txt\" \"instructions.md\" build",
     "compile": "npm run lint && npm run clean && tsc && npm run copyfiles",
@@ -14,7 +13,7 @@
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
     "commit": "git-cz",
-    "release": "np --message=\"chore(release): %s\"",
+    "release": "np --no-tests --message=\"chore(release): %s\"",
     "version": "npm run build",
     "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json mezielabs/flair"
   },
@@ -25,6 +24,14 @@
   ],
   "author": "Chimezie Enyinnaya",
   "license": "MIT",
+  "repository": {
+		"type": "git",
+		"url": "git+https://github.com/mezielabs/flair.git"
+	},
+  "bugs": {
+		"url": "https://github.com/mezielabs/flair/issues"
+	},
+	"homepage": "https://github.com/mezielabs/flair#readme",
   "devDependencies": {
     "@adonisjs/core": "^5.8.3",
     "@adonisjs/mrm-preset": "^5.0.3",
@@ -95,6 +102,9 @@
   "np": {
     "contents": ".",
     "anyBranch": false
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "adonisjs": {
     "instructions": "./build/instructions.js",
