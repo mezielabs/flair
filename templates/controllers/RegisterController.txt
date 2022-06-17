@@ -8,7 +8,7 @@ export default class RegisterController {
     return view.render('auth/register')
   }
 
-  public async store({ request, session, response }: HttpContextContract) {
+  public async store({ request, auth, session, response }: HttpContextContract) {
     const payload = await request.validate(RegisterValidator)
 
     const user = await User.create(payload)
@@ -16,12 +16,14 @@ export default class RegisterController {
     Event.emit('userRegistered', user)
 
     session.flash({
-      alert: {
+      notification: {
         type: 'success',
         message: 'Register successful!',
       },
     })
 
-    return response.redirect().back()
+    await auth.login(user)
+
+    return response.redirect().toRoute('dashboard')
   }
 }

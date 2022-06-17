@@ -5,8 +5,7 @@
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
       <h3 class="mb-6 text-2xl text-gray-700">Log in</h3>
 
-      {{--  @include('partials/alert')
-      @include('partials/errors')  --}}
+      @include('partials/notification')
 
       <form class="space-y-6" action="{{ route('AuthController.store') }}" method="POST">
         {{ csrfField() }}

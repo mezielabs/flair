@@ -8,7 +8,7 @@ export default class EmailVerificationController {
   public async verify({ request, params, session, response }: HttpContextContract) {
     if (!request.hasValidSignature()) {
       session.flash({
-        alert: {
+        notification: {
           type: 'error',
           message: 'Verification link is invalid or has expired.',
         },
@@ -21,7 +21,7 @@ export default class EmailVerificationController {
 
     if (user.emailVerifiedAt) {
       session.flash({
-        alert: {
+        notification: {
           type: 'info',
           message: 'Email address already verified.',
         },
@@ -34,7 +34,7 @@ export default class EmailVerificationController {
     await user.save()
 
     session.flash({
-      alert: {
+      notification: {
         type: 'success',
         message: 'Email address verified.',
       },
@@ -54,7 +54,7 @@ export default class EmailVerificationController {
 
     if (user?.emailVerifiedAt) {
       session.flash({
-        alert: {
+        notification: {
           type: 'info',
           message: 'Email address arealdy verified.',
         },
@@ -66,7 +66,7 @@ export default class EmailVerificationController {
     Event.emit('userRegistered', user!)
 
     session.flash({
-      alert: {
+      notification: {
         type: 'success',
         message:
           'A verification link has been sent to your email address, kindly follow the link to verify your email address.',

@@ -13,7 +13,7 @@ export default class AuthController {
       await auth.attempt(email, password, remember)
 
       session.flash({
-        alert: {
+        notification: {
           type: 'info',
           message: "Welcome back, you're now signed in.",
         },
@@ -22,7 +22,7 @@ export default class AuthController {
       return response.intended()
     } catch (error) {
       session.flash({
-        alert: {
+        notification: {
           type: 'error',
           message: "We couldn't verify your credentials.",
         },
@@ -37,6 +37,6 @@ export default class AuthController {
 
     session.forget('password_confirmed_at')
 
-    return response.redirect('/')
+    return response.redirect().toRoute('home')
   }
 }
