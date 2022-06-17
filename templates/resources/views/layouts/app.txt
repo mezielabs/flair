@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>AdonisJS</title>
+  <title>{{ env('APP_NAME') }}</title>
 
   @entryPointStyles('app')
   @entryPointScripts('app')
@@ -15,7 +15,9 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <a href="{{ route('home') }}" class="text-gray-900 font-semibold">AdonisJS</a>
+            <a href="{{ route('home') }}" class="text-gray-900 font-semibold">
+              {{ env('APP_NAME') }}
+            </a>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
