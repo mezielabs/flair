@@ -26,15 +26,15 @@
       x-transition:leave-end="transform scale-90 opacity-0"
     >
       @if(flashMessages.get('notification.type') === 'success')
-        <div class="bg-green-50 p-4 text-sm font-medium text-green-800">
+        <div class="bg-green-100 p-4 text-sm text-center font-medium text-green-800">
           {{ flashMessages.get('notification.message') }}
         </div>
       @elseif(flashMessages.get('notification.type') === 'error')
-        <div class="bg-red-50 p-4 text-sm font-medium text-red-800">
+        <div class="bg-red-100 p-4 text-sm text-center font-medium text-red-800">
           {{ flashMessages.get('notification.message') }}
         </div>
       @elseif(flashMessages.get('notification.type') === 'info')
-        <div class="bg-blue-50 p-4 text-sm font-medium text-blue-800">
+        <div class="bg-blue-100 p-4 text-sm text-center font-medium text-blue-800">
           {{ flashMessages.get('notification.message') }}
         </div>
       @endif

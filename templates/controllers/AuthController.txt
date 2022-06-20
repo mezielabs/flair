@@ -14,7 +14,7 @@ export default class AuthController {
 
       session.flash({
         notification: {
-          type: 'info',
+          type: 'success',
           message: "Welcome back, you're now signed in.",
         },
       })
