@@ -1,6 +1,6 @@
 {
   "name": "@mezielabs/flair",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "AdonisJS authentication scaffolding",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
