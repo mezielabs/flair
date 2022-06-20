@@ -10,6 +10,37 @@
   @entryPointScripts('app')
 </head>
 <body class="bg-gray-100 text-gray-400 font-sans">
+  @if (flashMessages.has('notification'))
+    <div
+      x-data="{
+        visible: true,
+        init() {
+          setTimeout(() => {
+            this.visible = false
+          }, 5000)
+        },
+      }"
+      x-show="visible"
+      x-transition:leave="transition ease duration-200"
+      x-transition:leave-start="opacity-100 transform scale-100"
+      x-transition:leave-end="transform scale-90 opacity-0"
+    >
+      @if(flashMessages.get('notification.type') === 'success')
+        <div class="bg-green-50 p-4 text-sm font-medium text-green-800">
+          {{ flashMessages.get('notification.message') }}
+        </div>
+      @elseif(flashMessages.get('notification.type') === 'error')
+        <div class="bg-red-50 p-4 text-sm font-medium text-red-800">
+          {{ flashMessages.get('notification.message') }}
+        </div>
+      @elseif(flashMessages.get('notification.type') === 'info')
+        <div class="bg-blue-50 p-4 text-sm font-medium text-blue-800">
+          {{ flashMessages.get('notification.message') }}
+        </div>
+      @endif
+    </div>
+  @endif
+
   <nav class="bg-white shadow-sm" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">

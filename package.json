@@ -153,10 +153,6 @@
         {
           "src": "resources/views/auth/resend-verification.txt",
           "dest": "auth/resend-verification.edge"
-        },
-        {
-          "src": "resources/views/partials/notification.txt",
-          "dest": "partials/notification.edge"
         }
       ]
     }
